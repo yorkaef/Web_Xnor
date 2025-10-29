@@ -64,9 +64,47 @@
     }
   }
   </script>
+  <script>
+    const header = document.querySelector('header');
+    const drawerEl = document.getElementById('drawer');
 
-  
+    function getOffset(){
+      return (header?.getBoundingClientRect().height || 0) - 25 ; // 8px de respiro
+    }
+
+    // Mantén actualizada la variable CSS con el alto del header
+    function updateScrollOffsetVar(){
+      document.documentElement.style.setProperty('--scrollOffset', getOffset() + 'px');
+    }
+    updateScrollOffsetVar();
+    window.addEventListener('resize', updateScrollOffsetVar);
+
+    // Smooth scroll con offset + cerrar el menú si el click vino del drawer
+    document.addEventListener('click', (e)=>{
+      const link = e.target.closest('a[href^="#"]');
+      if(!link) return;
+
+      const id = link.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if(!target) return;
+
+      e.preventDefault();
+
+      const y = target.getBoundingClientRect().top + window.pageYOffset - getOffset();
+      window.scrollTo({ top: y, behavior: 'smooth' });
+
+      // Actualiza el hash sin “saltito”
+      history.replaceState(null, '', '#' + id);
+
+      // Si el link venía del menú lateral, ciérralo
+      if (link.closest('.drawer')) {
+        toggleDrawer(false); // usa tu misma función de antes
+      }
+    });
+  </script>
+    
   <style>
+    
     /* ===== Base & tokens (mobile-first) ===== */
     :root{
       --bg:#f8fafc;           /* slate-50 */
@@ -90,6 +128,9 @@
     @media (prefers-color-scheme: dark){
       :root{ --bg:#0b1020; --panel:#0f172a; --ink:#e5e7eb; --muted:#9aa6b2; --line:#1f2937; --shadow:0 14px 36px rgba(0,0,0,.35);}  
     }
+    
+    html{ scroll-behavior:smooth; }
+    section, [id]{ scroll-margin-top: var(--scrollOffset, 80px); }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{margin:0; background:
@@ -304,19 +345,19 @@
     }
     
     /* Card del aside (espacio interno) */
-.c-card{ padding:12px; }
+    .c-card{ padding:12px; }
 
-/* Fila con imagen y mapa lado a lado */
-.c-media{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:16px;
-  align-items:stretch;
-  margin-bottom:12px;
-}
-@media (max-width: 700px){
-  .c-media{ grid-template-columns:1fr; }  /* apila en móvil */
-}
+    /* Fila con imagen y mapa lado a lado */
+    .c-media{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      align-items:stretch;
+      margin-bottom:12px;
+    }
+    @media (max-width: 700px){
+      .c-media{ grid-template-columns:1fr; }  /* apila en móvil */
+    }
     /* Imagen / mapa de contacto */
     .c-loc{
       display: flex;
@@ -352,10 +393,11 @@
     .c-loc-small a {
   color: inherit;
   text-decoration: none;
-}
-.c-loc-small a:hover { text-decoration: underline; }
+  }
+  .c-loc-small a:hover { text-decoration: underline; }
 
   </style>
+  
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido principal</a>
