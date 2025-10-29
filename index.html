@@ -111,7 +111,7 @@
     .menu{display:flex; gap:6px; align-items:center}
     .menu a{padding:8px 10px; border-radius:10px}
     .menu a:hover{background:color-mix(in oklab, var(--brand) 16%, transparent)}
-    .cta{padding:9px 12px; border-radius:12px; font-weight:800; background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#00121a; box-shadow:var(--shadow)}
+    .cta{display:inline-flex; align-items:center; justify-content:center;padding:9px 12px; border-radius:12px; font-weight:800; background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#00121a; box-shadow:var(--shadow)}
     .burger{display:inline-flex; gap:8px; align-items:center; justify-content:center; width:42px; height:42px; border-radius:12px; border:1px solid var(--line); background:var(--panel)}
     .burger svg{width:22px; height:22px}
     .menu-wrap{display:none}
@@ -152,7 +152,7 @@
     .section-hd{display:flex; flex-wrap:wrap; align-items:end; justify-content:space-between; gap:12px; margin-bottom:14px}
     .section-hd h2{margin:0; font:800 var(--fs-h2)/1.1 "Plus Jakarta Sans"}
     .section-hd p{margin:0; color:var(--muted); font-size:var(--fs-body)}
-
+    
     /* ===== Grids auto-fit ===== */
     .grid{display:grid; gap:12px}
     .grid.fit-3{grid-template-columns:repeat(auto-fit, minmax(240px, 1fr))}
@@ -293,9 +293,6 @@
       height:auto;              /* imagen completa, grande, sin recorte */
       display:block;
     }
-
-    /* CTA existente puede quedarse igual */
-    .pub-cta{ text-align:center; margin-top:20px; }
     
     /* Card del aside (espacio interno) */
 .c-card{ padding:12px; }
@@ -493,65 +490,64 @@
 
    <!-- NUEVO: Sección que se alimenta de Facebook -->
 <!-- NUEVO: Sección que se alimenta de Facebook -->
- <section id="publicaciones" class="pub">
-  <div class="container">
-    <div class="section-hd">
-      <h2>Últimas publicaciones</h2>
-      <p>Nuestros trabajos y novedades en Facebook.</p>
-    </div>
-
-    <div class="pub-grid">
-      <!-- Publicación 1 -->
-      <article class="pub-card reveal">
-        <div class="frame-wrap" >
-          <iframe
-            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FXnorTesis%2Fposts%2Fpfbid0VpgMJakZtqCJ7vzPeSukwJuBWNKbAnDijD3re9yKxiARfzxXqCWQNmvVLHy66YJsl&show_text=true&width=500"
-            title="Publicación 1 de Facebook — Xnor Tesis"
-            loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+    <section id="publicaciones" class="pub">
+      <div class="container">
+        <div class="section-hd">
+          <h2>Últimas publicaciones</h2>
+          <p>Nuestros trabajos y novedades en Facebook.</p>
         </div>
-      </article>
 
-      <!-- Publicación 2 (video) -->
-      <article class="pub-card reveal">
-        <div class="frame-wrap" >
-          <iframe
-            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FXnorTesis%2Fvideos%2F1503610410907276&show_text=true&width=500"
-            title="Video de Facebook — Xnor Tesis"
-            loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+        <div class="pub-grid">
+          <!-- Publicación 1 -->
+          <article class="pub-card reveal">
+            <div class="frame-wrap" >
+              <iframe
+                src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FXnorTesis%2Fposts%2Fpfbid0VpgMJakZtqCJ7vzPeSukwJuBWNKbAnDijD3re9yKxiARfzxXqCWQNmvVLHy66YJsl&show_text=true&width=500"
+                title="Publicación 1 de Facebook — Xnor Tesis"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </article>
+
+          <!-- Publicación 2 (video) -->
+          <article class="pub-card reveal">
+            <div class="frame-wrap" >
+              <iframe
+                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FXnorTesis%2Fvideos%2F1503610410907276&show_text=true&width=500"
+                title="Video de Facebook — Xnor Tesis"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </article>
+
+          <!-- Publicación 3 -->
+          <article class="pub-card reveal">
+            <div class="frame-wrap" >
+              <iframe
+                src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FXnorTesis%2Fposts%2Fpfbid0iDPeyaJVLJc2PqqB3PiRri6hxam61HjTFX6Y1RU7N4YbUUxtesnTVSFGqze2g6FNl&show_text=true&width=500"
+                title="Publicación 3 de Facebook — Xnor Tesis"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </article>
         </div>
-      </article>
 
-      <!-- Publicación 3 -->
-      <article class="pub-card reveal">
-        <div class="frame-wrap" >
-          <iframe
-            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FXnorTesis%2Fposts%2Fpfbid0iDPeyaJVLJc2PqqB3PiRri6hxam61HjTFX6Y1RU7N4YbUUxtesnTVSFGqze2g6FNl&show_text=true&width=500"
-            title="Publicación 3 de Facebook — Xnor Tesis"
-            loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+        <div class="pub-cta">
+          <a class="cta" href="https://www.facebook.com/XnorTesis" target="_blank" rel="noopener">
+            Ver todas las publicaciones en Facebook
+          </a>
         </div>
-      </article>
-    </div>
-
-    <div class="pub-cta">
-      <a class="cta" href="https://www.facebook.com/XnorTesis" target="_blank" rel="noopener">
-        Ver todas las publicaciones en Facebook
-      </a>
-    </div>
-  </div>
-</section>
-</style>
+      </div>
+    </section>
     <section id="planes">
       <div class="container">
         <div class="section-hd">
