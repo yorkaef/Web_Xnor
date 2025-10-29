@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>XNOR Tesis — Tesis, Estadística & Registro de Software (INDECOPI)</title>
+  <meta name="description" content="Asesoría integral en tesis y estadística con expertos por materia. Derechos de software profesional y registro INDECOPI. Socio de la Cámara de Comercio de Apurímac. Calidad premium, rapidez y precios accesibles." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" type="image/png" href="LOGO.ico" />
+  <link rel="apple-touch-icon" href="LOGO.ico" />
+  <!-- OG/SEO mejorado -->
+  <meta property="og:title" content="XNOR Tesis – Tesis, estadística y registro de software" />
+  <meta property="og:description" content="Acompañamiento experto, evidencias y registro INDECOPI. Atención en Abancay y todo el Perú." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tusitio/" />
+  <meta property="og:image" content="LOGO.ico" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap">
+  <style>
+    /* ===== Base & tokens (mobile-first) ===== */
+    :root{
+      --bg:#f8fafc;           /* slate-50 */
+      --ink:#0f172a;          /* slate-900 */
+      --muted:#475569;        /* slate-600 */
+      --panel:#ffffff;        /* card */
+      --line:#e2e8f0;         /* border */
+      --brand:#0ea5e9;        /* sky-500 */
+      --brand-2:#22d3ee;      /* cyan-400 */
+      --accent:#7c3aed;       /* violet-600 */
+      --ok:#16a34a;           /* green-600 */
+      --warn:#f59e0b;         /* amber-500 */
+      --radius:18px;
+      --shadow:0 10px 25px rgba(2,6,23,.08);
+      --max:1200px;
+      --space:clamp(16px, 3vw, 24px);
+      --fs-hero:clamp(28px, 5vw, 46px);
+      --fs-h2:clamp(20px, 3.2vw, 28px);
+      --fs-body:clamp(14px, 2.4vw, 16px);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0b1020; --panel:#0f172a; --ink:#e5e7eb; --muted:#9aa6b2; --line:#1f2937; --shadow:0 14px 36px rgba(0,0,0,.35);}  
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; background:
+      radial-gradient(1200px 700px at 0% -10%, rgba(34,211,238,.08), transparent 40%),
+      radial-gradient(1100px 700px at 120% -10%, rgba(14,165,233,.08), transparent 40%),
+      var(--bg);
+      color:var(--ink); font-family:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif; line-height:1.6}
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 var(--space)}
+
+    /* ===== Header ultra-responsivo ===== */
+    .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+    .skip:focus{left:8px; top:8px; width:auto; height:auto; padding:8px 12px; background:var(--brand); color:#001018; border-radius:999px}
+    header{position:sticky; top:0; z-index:60; backdrop-filter:blur(8px) saturate(140%); background:color-mix(in oklab, var(--panel) 75%, transparent); border-bottom:1px solid var(--line)}
+    .nav{display:flex; gap:12px; align-items:center; justify-content:space-between; padding:10px 0}
+    .brand{display:flex; gap:10px; align-items:center}
+    .logo{width:40px;height:40px;object-fit:contain;border-radius:10px;background:#ffffff;box-shadow:var(--shadow)}
+    .brand h1{margin:0; font:800 16px/1 "Plus Jakarta Sans"}
+    .menu{display:flex; gap:6px; align-items:center}
+    .menu a{padding:8px 10px; border-radius:10px}
+    .menu a:hover{background:color-mix(in oklab, var(--brand) 16%, transparent)}
+    .cta{padding:9px 12px; border-radius:12px; font-weight:800; background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#00121a; box-shadow:var(--shadow)}
+    .burger{display:inline-flex; gap:8px; align-items:center; justify-content:center; width:42px; height:42px; border-radius:12px; border:1px solid var(--line); background:var(--panel)}
+    .burger svg{width:22px; height:22px}
+    .menu-wrap{display:none}
+    @media (min-width: 880px){ .burger{display:none} .menu-wrap{display:block} }
+
+    /* Drawer móvil */
+    .drawer{position:fixed; inset:0; display:none; z-index:70}
+    .drawer[aria-hidden="false"]{display:block}
+    .backdrop{position:absolute; inset:0; background:rgba(2,6,23,.45)}
+    .sheet{position:absolute; right:0; top:0; height:100%; width:min(86vw, 380px); background:var(--panel); border-left:1px solid var(--line); padding:16px}
+    .sheet a{display:block; padding:12px; border-radius:10px}
+
+    /* ===== Hero ===== */
+    .hero{padding:clamp(24px, 6vw, 68px) 0}
+    .ribbon{display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center; padding:6px 10px; margin-bottom:10px; border:1px solid var(--line); border-radius:999px; background:color-mix(in oklab, var(--brand-2) 10%, transparent)}
+    .title{font:800 var(--fs-hero)/1.08 "Plus Jakarta Sans"; letter-spacing:.2px; margin:12px 0 8px}
+    .title span{background:linear-gradient(90deg, var(--brand), var(--accent)); -webkit-background-clip:text; background-clip:text; color:transparent}
+    .lead{font-size:var(--fs-body); color:var(--muted); margin:0 0 12px}
+      
+    /* ===== Cards responsivas con container queries ===== */
+    .cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; container-type:inline-size; container-name:cards}
+    .card{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:14px; box-shadow:var(--shadow)}
+    .card h3{margin:4px 0 6px; font-size:clamp(15px, 2.8vw, 18px)}
+    .card p, .card li{font-size:var(--fs-body); color:var(--muted)}
+    @container cards (min-width: 520px){ .card{padding:18px} }
+
+    /* ===== Secciones ===== */
+    section{padding:clamp(28px, 6vw, 64px) 0}
+    .section-hd{display:flex; flex-wrap:wrap; align-items:end; justify-content:space-between; gap:12px; margin-bottom:14px}
+    .section-hd h2{margin:0; font:800 var(--fs-h2)/1.1 "Plus Jakarta Sans"}
+    .section-hd p{margin:0; color:var(--muted); font-size:var(--fs-body)}
+
+    /* ===== Grids auto-fit ===== */
+    .grid{display:grid; gap:12px}
+    .grid.fit-3{grid-template-columns:repeat(auto-fit, minmax(240px, 1fr))}
+    .grid.fit-4{grid-template-columns:repeat(auto-fit, minmax(180px, 1fr))}
+
+    /* ===== Timeline ===== */
+    .step{border:1px solid var(--line); background:var(--panel); border-radius:16px; padding:14px; box-shadow:var(--shadow)}
+    .step b{display:inline-flex; width:26px; height:26px; align-items:center; justify-content:center; margin-right:8px; border-radius:9px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#00131a; font-weight:900}
+
+    /* ===== Pricing ===== */
+    .price{background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:16px; box-shadow:var(--shadow)}
+    .price h3{margin:0 0 4px}
+    .price b{font-size:clamp(22px, 4.2vw, 30px)}
+    .badge{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border:1px solid var(--line); border-radius:999px; background:var(--panel)}
+
+    /* ===== Contacto ===== */
+    .contact{display:grid; grid-template-columns:1fr; gap:12px}
+    @media (min-width: 880px){ .contact{grid-template-columns:1.05fr .95fr} }
+    .form{background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:14px; box-shadow:var(--shadow)}
+    .input{display:flex; flex-direction:column; gap:6px; margin-bottom:10px}
+    .input input, .input textarea{font:inherit; background:#fff; border:1px solid var(--line); color:#0b1320; border-radius:12px; padding:12px}
+    @media (prefers-color-scheme: dark){ .input input, .input textarea{ background:#0b1328; color:var(--ink) } }
+
+    /* ===== Footer ===== */
+    footer{border-top:1px solid var(--line); padding:18px 0; color:var(--muted)}
+
+    /* ===== Motion ===== */
+    .reveal{opacity:0; transform:translateY(8px); transition:opacity .5s ease, transform .5s ease}
+    .reveal.show{opacity:1; transform:none}
+    @media (prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none} *{scroll-behavior:auto} }
+
+    /* Utilidad: clamp de texto para cards de posts */
+    .clamp-4{
+      display:-webkit-box;
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp:4;
+      line-clamp:4;
+      overflow:hidden;
+    }
+
+    /* === Publicaciones (mejoras) === */
+    :root{
+      --card-bg:#fff;
+      --card-radius:16px;
+      --shadow:0 10px 28px rgba(0,0,0,.18);
+      --postHeight:clamp(360px,55vh,520px);
+    }
+    .pub-grid{
+      display:grid;
+      gap:24px;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      align-items:stretch;
+    }
+    .pub-card{
+      padding:12px;
+      background:var(--card-bg);
+      border-radius:var(--card-radius);
+      box-shadow:var(--shadow);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .pub-card:hover{ transform:translateY(-2px); box-shadow:0 12px 34px rgba(0,0,0,.22); }
+
+    /* Contenedor con scroll interno */
+    .frame-wrap{
+      max-height:var(--postHeight);
+      overflow:auto;               /* << scroll aquí */
+      border-radius:12px;
+      scrollbar-gutter:stable both-edges;
+    }
+
+    /* Forzamos que el contenido del iframe sea más alto
+      para que el contenedor genere scroll */
+    .frame-wrap iframe{
+      width:100%;
+      height:680px;                /* suficiente para que siempre haya scroll si hace falta */
+      border:0;
+      display:block;
+    }
+
+    /* Hint pegado abajo + degradado sutil */
+    .frame-wrap::after{
+      content:attr(data-hint);
+      position:sticky; bottom:0; left:0; right:0;
+      display:block; text-align:center;
+      font-size:.8rem; color:#34405a;
+      background:linear-gradient(transparent, rgba(255,255,255,.95) 60%);
+      padding:.4rem .6rem;
+    }
+
+    /* Scrollbar sutil (webkit) */
+    .frame-wrap::-webkit-scrollbar{ width:10px; }
+    .frame-wrap::-webkit-scrollbar-thumb{ background:#c7cfdb; border-radius:8px; }
+    .frame-wrap::-webkit-scrollbar-thumb:hover{ background:#b6c1d4; }
+    .frame-wrap::-webkit-scrollbar-track{ background:transparent; }
+
+    /* CTA centrada */
+    .pub-cta{ text-align:center; margin-top:20px; }
+
+    /* Ajustes móviles */
+    @media (max-width:768px){
+      .frame-wrap{ max-height:420px; }
+    }
+
+    /* ===== Galería sin marcos (clases exclusivas) ===== */
+    .pg-grid{
+      display:grid;
+      gap:24px;
+      grid-template-columns:repeat(2, minmax(320px, 1fr)); /* 2 por fila */
+    }
+    @media (max-width:900px){
+      .pg-grid{ grid-template-columns:1fr; }               /* 1 en móvil */
+    }
+    @media (min-width:1400px){
+      .pg-grid{ grid-template-columns:repeat(2, minmax(320px, 1fr)); } /* opcional 3 en súper ancho */
+    }
+
+    .pg-card{
+      padding:0;
+      background:#fff;
+      border-radius:16px;
+      box-shadow:0 10px 28px rgba(0,0,0,.18);
+      overflow:hidden; /* redondeo aplicado a la imagen */
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .pg-card:hover{ transform:translateY(-2px); box-shadow:0 12px 34px rgba(0,0,0,.22); }
+
+    .pg-wrap{
+      display:block;
+      position:relative;
+      overflow:hidden;
+      border-radius:inherit;
+      background:transparent;   /* sin fondo azul marino */
+      padding:0;
+    }
+
+    .pg-img{
+      width:100%;
+      height:auto;              /* imagen completa, grande, sin recorte */
+      display:block;
+    }
+
+    /* CTA existente puede quedarse igual */
+    .pub-cta{ text-align:center; margin-top:20px; }
+    
+    /* Card del aside (espacio interno) */
+.c-card{ padding:12px; }
+
+/* Fila con imagen y mapa lado a lado */
+.c-media{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:16px;
+  align-items:stretch;
+  margin-bottom:12px;
+}
+@media (max-width: 700px){
+  .c-media{ grid-template-columns:1fr; }  /* apila en móvil */
+}
+    /* Imagen / mapa de contacto */
+    .c-loc{
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .c-loc-img{
+        width: 100%;
+        height: 320px;          /* ← hazla más o menos alta aquí */
+        object-fit: cover;
+        object-position: center top; /* crece “hacia abajo” */
+        display: block;
+    }
+    .c-loc iframe{
+        width: 100%;
+        height: 320px;          /* igual que .c-loc-img para simetría */
+        border: 0;
+        display: block;
+    }
+    .c-caption,
+    .c-loc-small{
+      display: block;
+      width: 100%;
+      padding: 12px 14px;
+      text-align: center;
+      color: #000;            /* texto negro */
+      background: #fff;       /* franja blanca completa */
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .c-loc-small a {
+  color: inherit;
+  text-decoration: none;
+}
+.c-loc-small a:hover { text-decoration: underline; }
+
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido principal</a>
+  <header role="banner">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="XNOR Tesis">
+        <img src="LOGO.ico" alt="Logotipo XNOR Tesis" class="logo">
+        <h1>XNOR Tesis</h1>
+      </a>
+      <div class="menu-wrap" aria-label="Menú de navegación">
+        <nav class="menu" aria-label="Principal">
+          <a href="#servicios">Servicios</a>
+          <a href="#indecopi">INDECOPI</a>
+          <a href="#premios">Premios</a>
+          <a href="#publicaciones">Publicaciones</a>
+          <a href="#Clientes">Nuestros Clientes</a>
+          <a href="#planes">Planes</a>
+          <a class="cta" href="#contacto">Cotizar</a>
+        </nav>
+      </div>
+      <button class="burger" id="burger" aria-controls="drawer" aria-expanded="false" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 7h16M4 12h16M4 17h16" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+      <aside class="sheet" role="dialog" aria-label="Menú móvil">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px">
+          <strong>Menú</strong>
+          <button class="burger" id="closeDrawer" aria-label="Cerrar menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 6l12 12M18 6L6 18" stroke-width="2" stroke-linecap="round"/></svg></button>
+        </div>
+        <a href="#servicios">Servicios</a>
+        <a href="#indecopi">Registro INDECOPI</a>
+        <a href="#premios">Premios</a>
+        <a href="#publicaciones">Publicaciones</a>
+        <a href="#planes">Planes</a>
+        <a href="#contacto">Contacto</a>
+        <a class="cta" href="https://www.facebook.com/XnorTesis" target="_blank" rel="noopener">Facebook @XnorTesis</a>
+      </aside>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="hero">
+      <div class="container">
+        <div class="ribbon">🤝 Socio de la <b>Cámara de Comercio de Apurímac</b> · 📣 <a href="https://www.facebook.com/XnorTesis" target="_blank" rel="noopener">Facebook @XnorTesis</a></div>
+        <h2 class="title">Tesis y <span>estadística</span> con <span>expertos por materia</span>, protección de <span>software</span> y registro <span>INDECOPI</span>.</h2>
+        <p class="lead">Calidad premium, entregas rápidas y planes económicos. Acompañamiento real: metodología, análisis SPSS/R/Python, redacción científica, derechos de software profesional y trámite integral.</p>
+        <div class="cards" style="margin-top:12px">
+          <article class="card reveal"><h3>⭐ Calidad premium</h3><p>Estándares ISO/IEC, estilo APA/IEEE y evidencias verificables.</p></article>
+          <article class="card reveal"><h3>⚡ Rapidez</h3><p>Sprints por hito, cronograma claro y seguimiento semanal.</p></article>
+          <article class="card reveal"><h3>💸 Económico</h3><p>Planes por etapa y facilidades para estudiantes.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="container">
+        <div class="section-hd">
+          <h2>Servicios principales</h2>
+          <p>Soluciones integrales para investigación y propiedad intelectual.</p>
+        </div>
+        <div class="grid fit-3">
+          <article class="card reveal">
+            <h3>Asesoría de tesis</h3>
+            <ul>
+              <li>Problema, marco teórico, metodología y ética.</li>
+              <li>Diseños descriptivos, correlacionales, cuasi‑experimentales.</li>
+              <li>Antiplagio, APA/IEEE y sustentación.</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>Estadística & datos</h3>
+            <ul>
+              <li>Muestreo, encuestas, limpieza y dashboards.</li>
+              <li>SPSS · R · Python: descriptivos, inferencia y modelos.</li>
+              <li>Reportes reproducibles con scripts anexos.</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>Derechos de software</h3>
+            <ul>
+              <li>Derechos de software profesional y licenciamiento.</li>
+              <li>Contratos de cesión/uso y compliance.</li>
+              <li>Registro de código y manuales en INDECOPI.</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>Investigación aplicada</h3>
+            <ul>
+              <li>Prototipado (Arduino, sensores, simuladores).</li>
+              <li>IA (CNN, visión por computadora).</li>
+              <li>Artículos y ponencias.</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>Trámites & documentos</h3>
+            <ul>
+              <li>Cartas, memorias, manuales y formatos.</li>
+              <li>Tramitadores académicos si no tienes tiempo.</li>
+              <li>Capacitaciones a medida.</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>Áreas de especialidad</h3>
+            <p>Derecho, Ingeniería, Educación, Salud, Administración, Informática, Contabilidad, Minas, Ambiental, Marketing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="indecopi">
+      <div class="container">
+        <div class="section-hd">
+          <h2>Registro de software en INDECOPI</h2>
+          <p>Protegemos tu autoría y documentación técnica.</p>
+        </div>
+        <div class="grid fit-4">
+          <div class="step reveal"><p><b>1</b><strong>Auditoría</strong><br><span class="muted">Dependencias, licencias y autoría.</span></p></div>
+          <div class="step reveal"><p><b>2</b><strong>Expediente</strong><br><span class="muted">Código, manuales y anexos.</span></p></div>
+          <div class="step reveal"><p><b>3</b><strong>Trámite</strong><br><span class="muted">Presentación y seguimiento.</span></p></div>
+          <div class="step reveal"><p><b>4</b><strong>Constancia</strong><br><span class="muted">Resolución y resguardo.</span></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="premios">
+      <div class="container">
+        <div class="section-hd">
+          <h2>Premios & publicaciones</h2>
+          <p>Equipo ganador y con resultados.</p>
+        </div>
+        <div class="grid fit-3">
+          <article class="card reveal"><h3>🏆 Concursos</h3><p>Reconocimientos regionales y nacionales en investigación.</p></article>
+          <article class="card reveal"><h3>🧪 Evidencias</h3><p>Proyectos con métricas y anexos verificables.</p></article>
+          <article class="card reveal"><h3>📚 Publicaciones</h3><p>Artículos y ponencias con impacto aplicado.</p></article>
+        </div>
+      </div>
+    </section>
+
+
+   <!-- NUEVO: Sección que se alimenta de Facebook -->
+<!-- NUEVO: Sección que se alimenta de Facebook -->
+ <section id="publicaciones" class="pub">
+  <div class="container">
+    <div class="section-hd">
+      <h2>Últimas publicaciones</h2>
+      <p>Nuestros trabajos y novedades en Facebook.</p>
+    </div>
+
+    <div class="pub-grid">
+      <!-- Publicación 1 -->
+      <article class="pub-card reveal">
+        <div class="frame-wrap" >
+          <iframe
+            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FXnorTesis%2Fposts%2Fpfbid0VpgMJakZtqCJ7vzPeSukwJuBWNKbAnDijD3re9yKxiARfzxXqCWQNmvVLHy66YJsl&show_text=true&width=500"
+            title="Publicación 1 de Facebook — Xnor Tesis"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </article>
+
+      <!-- Publicación 2 (video) -->
+      <article class="pub-card reveal">
+        <div class="frame-wrap" >
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FXnorTesis%2Fvideos%2F1503610410907276&show_text=true&width=500"
+            title="Video de Facebook — Xnor Tesis"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </article>
+
+      <!-- Publicación 3 -->
+      <article class="pub-card reveal">
+        <div class="frame-wrap" >
+          <iframe
+            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FXnorTesis%2Fposts%2Fpfbid0iDPeyaJVLJc2PqqB3PiRri6hxam61HjTFX6Y1RU7N4YbUUxtesnTVSFGqze2g6FNl&show_text=true&width=500"
+            title="Publicación 3 de Facebook — Xnor Tesis"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </article>
+    </div>
+
+    <div class="pub-cta">
+      <a class="cta" href="https://www.facebook.com/XnorTesis" target="_blank" rel="noopener">
+        Ver todas las publicaciones en Facebook
+      </a>
+    </div>
+  </div>
+</section>
+</style>
+    <section id="planes">
+      <div class="container">
+        <div class="section-hd">
+          <h2>Planes</h2>
+          <p>Precios accesibles por etapa, sin sorpresas.</p>
+        </div>
+        <div class="grid fit-3">
+          <div class="price reveal">
+            <h3>Inicio</h3>
+            <ul>
+              <li>Diagnóstico + plan de tesis</li>
+              <li>Plantillas APA / IEEE</li>
+              <li>Asesoría por hitos (2 sesiones)</li>
+            </ul>
+          </div>
+          <div class="price reveal">
+            <h3>Avance</h3>
+            <ul>
+              <li>Instrumentos y base de datos</li>
+              <li>Análisis y visualización estadística</li>
+              <li>Revisión antiplagio profesional</li>
+            </ul>
+          </div>
+          <div class="price reveal">
+            <h3>Completo</h3>
+            <ul>
+              <li>Informe final + anexos</li>
+              <li>Preparación de sustentación</li>
+              <li>Registro de software (opcional)</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+<!-- NUEVO: Sección con imágenes estáticas -->
+<section id="Clientes" class="pub-gallery">
+  <div class="container">
+    <div class="section-hd">
+      <h2>La voz de nuestros clientes</h2>
+      <p>Nuestros clientes sastisfechos.</p>
+    </div>
+
+    <div class="pg-grid">
+      <article class="pg-card reveal">
+        <a class="pg-wrap" href="cliente1.jpg" target="_blank" rel="noopener">
+          <img src="cliente1.jpg" alt="Cliente 1" class="pg-img" loading="lazy" decoding="async">
+        </a>
+      </article>
+
+      <article class="pg-card reveal">
+        <a class="pg-wrap" href="cliente2.jpg" target="_blank" rel="noopener">
+          <img src="cliente2.jpg" alt="Cliente 2" class="pg-img" loading="lazy" decoding="async">
+        </a>
+      </article>
+
+      <article class="pg-card reveal">
+        <a class="pg-wrap" href="cliente3.jpg" target="_blank" rel="noopener">
+          <img src="cliente3.jpg" alt="Cliente 3" class="pg-img" loading="lazy" decoding="async">
+        </a>
+      </article>
+            <article class="pg-card reveal">
+        <a class="pg-wrap" href="cliente4.jpg" target="_blank" rel="noopener">
+          <img src="cliente4.jpg" alt="Cliente 3" class="pg-img" loading="lazy" decoding="async">
+        </a>
+      </article>
+    </div>
+
+    <div class="pub-cta">
+      <a class="cta" href="https://web.facebook.com/XnorTesis/posts/pfbid0fphEpBniJhK6VFWhCBpqcrJ9NQiNfd21NkZNqVYEBWBLGu8z5ttbv9LVwSnEn7QDl" target="_blank" rel="noopener">
+        Ver nuestro Facebook
+      </a>
+    </div>
+  </div>
+</section>
+    <section id="contacto">
+      <div class="container">
+        <div class="section-hd">
+          <h2>Contacto</h2>
+          <p>Abancay · Apurímac · Atención a todo el Perú</p>
+        </div>
+        <div class="contact">
+          <!-- Reemplaza SOLO el formulario por esto -->
+          <form class="form reveal" onsubmit="return false">
+            <div class="input">
+              <label for="wa-msg">Mensaje</label>
+              <textarea id="wa-msg" name="mensaje" rows="5" placeholder="Escribe tu consulta para enviarla por WhatsApp" required></textarea>
+            </div>
+            <button class="cta" id="wa-send" type="button" aria-label="Enviar mensaje por WhatsApp">Enviar por WhatsApp</button>
+            <p id="form-msg" class="muted"></p>
+          </form>
+
+          <script>
+            (function () {
+              const btn = document.getElementById('wa-send');
+              const ta  = document.getElementById('wa-msg');
+              const msg = document.getElementById('form-msg');
+
+              const phone = '51962248104'; // ← tu número en formato internacional sin '+'
+              const base  = 'https://wa.me/' + phone + '?text=';
+
+              btn.addEventListener('click', function () {
+                const text = (ta.value || '').trim();
+                if (!text) {
+                  msg.textContent = 'Escribe tu mensaje antes de enviar.';
+                  msg.style.color = '#b91c1c';
+                  ta.focus();
+                  return;
+                }
+                msg.textContent = '';
+                const url = base + encodeURIComponent(text);
+                window.open(url, '_blank', 'noopener');
+              });
+            })();
+          </script>
+
+          <aside class="card reveal c-card">
+            <div class="c-details">
+              <h3 style="margin:0 0 6px">XNOR Tesis</h3>
+              <p class="muted" style="margin:0 0 6px">Socio de la Cámara de Comercio de Apurímac</p>
+              <p class="muted" style="margin:0">
+                📞 <a href="tel:+51962248104">+51 962 248 104</a><br>📍 Abancay, Apurímac
+              </p>
+              <p style="margin:10px 0 0">
+                <a class="badge" href="https://www.facebook.com/XnorTesis" target="_blank" rel="noopener">Facebook: @XnorTesis</a>
+              </p>
+            </div>
+            <!-- Medios: IZQUIERDA (imagen) / DERECHA (mapa) -->
+            <div class="c-media">
+                <a class="c-loc" href="ubicacion.png" target="_blank" rel="noopener" aria-label="Abrir ubicación en grande">
+                  <img src="ubicacion.png" alt="Ubicación de XNOR Tesis en Abancay" class="c-loc-img" loading="lazy" decoding="async">
+                  <span class="c-caption">Pjs. Los Juristas 𝚗º𝟷𝟶𝟼</span>
+                </a>
+
+              <div class="c-loc">
+                <iframe
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=-72.87882149219514%2C-13.636282632650909%2C-72.87537217140199%2C-13.634489283223974&amp;layer=mapnik&amp;marker=-13.63538595130631%2C-72.87709683179855"
+                  loading="lazy"></iframe>
+                <small class="c-loc-small">
+                  <a href="https://www.openstreetmap.org/?mlat=-13.635386&amp;mlon=-72.877097#map=19/-13.635386/-72.877097" target="_blank" rel="noopener">
+                    Ver el mapa más grande
+                  </a>
+                </small>
+              </div>
+            </div>
+
+            <!-- Detalles de contacto ABAJO -->
+            
+          </aside>
+        </div> <!-- /.contact -->
+      </div> <!-- /.container -->
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container" style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between">
+      <small>© <span id="y"></span> XNOR Tesis — Todos los derechos reservados.</small>
+      <small><a href="#">Términos</a> · <a href="#">Privacidad</a></small>
+    </div>
+  </footer>
+
+  <!-- SEO JSON-LD -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"XNOR Tesis","areaServed":"Perú","sameAs":["https://www.facebook.com/XnorTesis"],"memberOf":{"@type":"Organization","name":"Cámara de Comercio de Apurímac"},"description":"Asesoría de tesis y estadística, derechos de software profesional y registro INDECOPI. Calidad premium, rapidez y precios accesibles.","address":{"@type":"PostalAddress","addressLocality":"Abancay","addressRegion":"Apurímac","addressCountry":"PE"}}
+  </script>
+
+  <!-- SDK de Facebook para Page Plugin -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v20.0"></script>
+
+  <script>
+    // Año dinámico
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Drawer móvil accesible
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+    const closeDrawer = document.getElementById('closeDrawer');
+    const backdrop = document.getElementById('backdrop');
+    function toggleDrawer(open){
+      drawer.setAttribute('aria-hidden', !open);
+      burger.setAttribute('aria-expanded', !!open);
+      if(open){ drawer.querySelector('a').focus(); }
+    }
+    burger.addEventListener('click', ()=>toggleDrawer(true));
+    backdrop.addEventListener('click', ()=>toggleDrawer(false));
+    closeDrawer.addEventListener('click', ()=>toggleDrawer(false));
+    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') toggleDrawer(false); });
+
+    // Validación simple
+    function validateForm(e){
+      const f=e.target; const ok=f.nombre.value.trim() && f.email.value.trim();
+      if(!ok){ e.preventDefault(); document.getElementById('form-msg').textContent='Completa los campos obligatorios.'; return false; }
+      document.getElementById('form-msg').textContent='Enviando…'; return true;
+    }
+
+    // Reveal
+    const io = new IntersectionObserver((entries)=>{ entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('show'); io.unobserve(en.target);} }); },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Botón flotante WhatsApp (editar número + mensaje)
+    (function(){
+      const w=document.createElement('a');
+      w.href='https://wa.me/51962248104?text=Hola%20XNOR%20Tesis%2C%20quisiera%20una%20cotizaci%C3%B3n%20para%20mi%20tesis%20(%C3%A1rea%20y%20plazo).';
+      w.target='_blank'; w.rel='noopener'; w.setAttribute('aria-label','Chat por WhatsApp'); w.textContent='WhatsApp';
+      Object.assign(w.style,{position:'fixed', right:'16px', bottom:'16px', padding:'12px 14px', background:'linear-gradient(135deg,#25D366,#1fa855)', color:'#002813', fontWeight:'800', borderRadius:'999px', boxShadow:'var(--shadow)', zIndex:80});
+      document.body.appendChild(w);
+    })();
+  </script>
+</body>
+</html>
