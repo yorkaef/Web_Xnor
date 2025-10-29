@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tesis.xnor.site/sitemap.xml

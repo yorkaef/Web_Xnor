@@ -5,19 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>XNOR Tesis — Tesis, Estadística & Registro de Software (INDECOPI)</title>
   <meta name="description" content="Asesoría integral en tesis y estadística con expertos por materia. Derechos de software profesional y registro INDECOPI. Socio de la Cámara de Comercio de Apurímac. Calidad premium, rapidez y precios accesibles." />
+  <meta name="author" content="XNOR Tesis">
   <meta name="theme-color" content="#0ea5e9" />
-  <link rel="icon" type="image/png" href="LOGO.ico" />
-  <link rel="apple-touch-icon" href="LOGO.ico" />
+  
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <link rel="canonical" href="https://tesis.xnor.site/">
+  <link rel="alternate" href="https://tesis.xnor.site/" hreflang="es-PE">
+  <link rel="alternate" href="https://tesis.xnor.site/" hreflang="x-default">
+  <link rel="icon" href="/LOGO.ico" sizes="any">
+  <link rel="icon" href="/LOGO.png" type="image/png">
+  <link rel="apple-touch-icon" href="/LOGO.png" />
+
+
   <!-- OG/SEO mejorado -->
+  <meta property="og:locale" content="es_LA">
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="XNOR Tesis">
   <meta property="og:title" content="XNOR Tesis – Tesis, estadística y registro de software" />
   <meta property="og:description" content="Acompañamiento experto, evidencias y registro INDECOPI. Atención en Abancay y todo el Perú." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://tusitio/" />
+  <meta property="og:url" content="https://tesis.xnor.site/" />
   <meta property="og:image" content="LOGO.ico" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="XNOR Tesis — Tesis, estadística y registro de software">
+  <meta name="twitter:description" content="Calidad premium, entregas rápidas y precios accesibles en todo el Perú.">
+  <meta name="twitter:image" content="LOGO.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap">
+  
+  
+    <!-- SEO JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://xnor.site/#org",
+    "name": "XNOR Tesis",
+    "url": "https://tesis.xnor.site/",
+    "image": "LOGO.ico",
+    "telephone": "+51 962 248 104",
+    "description": "Asesoría de tesis y estadística, derechos de software profesional y registro INDECOPI. Calidad premium, rapidez y precios accesibles.",
+    "areaServed": "PE",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Abancay",
+      "addressRegion": "Apurímac",
+      "addressCountry": "PE"
+    },
+    "sameAs": [
+      "https://www.facebook.com/XnorTesis"
+    ],
+    "memberOf": {
+      "@type": "Organization",
+      "name": "Cámara de Comercio de Apurímac"
+    }
+  }
+  </script>
+
+  
   <style>
     /* ===== Base & tokens (mobile-first) ===== */
     :root{
@@ -70,8 +118,17 @@
     @media (min-width: 880px){ .burger{display:none} .menu-wrap{display:block} }
 
     /* Drawer móvil */
-    .drawer{position:fixed; inset:0; display:none; z-index:70}
-    .drawer[aria-hidden="false"]{display:block}
+    .drawer{ position:fixed; inset:0; display:none; z-index:999; }
+    .drawer[aria-hidden="false"]{ display:block; }
+    .backdrop{ position:absolute; inset:0; background:rgba(2,6,23,.45); }
+    .sheet{
+      position:absolute; right:0; top:0; height:100%;
+      width:min(86vw, 380px);
+      background:var(--panel); border-left:1px solid var(--line); padding:16px;
+      overflow:auto;
+    }
+
+    body.menu-open{ overflow:hidden; touch-action:none; overscroll-behavior:contain; }
     .backdrop{position:absolute; inset:0; background:rgba(2,6,23,.45)}
     .sheet{position:absolute; right:0; top:0; height:100%; width:min(86vw, 380px); background:var(--panel); border-left:1px solid var(--line); padding:16px}
     .sheet a{display:block; padding:12px; border-radius:10px}
@@ -317,7 +374,8 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 7h16M4 12h16M4 17h16" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
     </div>
-    <div class="drawer" id="drawer" aria-hidden="true">
+  </header>
+      <div class="drawer" id="drawer" aria-hidden="true">
       <div class="backdrop" id="backdrop" aria-hidden="true"></div>
       <aside class="sheet" role="dialog" aria-label="Menú móvil">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px">
@@ -333,7 +391,6 @@
         <a class="cta" href="https://www.facebook.com/XnorTesis" target="_blank" rel="noopener">Facebook @XnorTesis</a>
       </aside>
     </div>
-  </header>
 
   <main id="contenido">
     <section id="inicio" class="hero">
@@ -657,10 +714,6 @@
     </div>
   </footer>
 
-  <!-- SEO JSON-LD -->
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ProfessionalService","name":"XNOR Tesis","areaServed":"Perú","sameAs":["https://www.facebook.com/XnorTesis"],"memberOf":{"@type":"Organization","name":"Cámara de Comercio de Apurímac"},"description":"Asesoría de tesis y estadística, derechos de software profesional y registro INDECOPI. Calidad premium, rapidez y precios accesibles.","address":{"@type":"PostalAddress","addressLocality":"Abancay","addressRegion":"Apurímac","addressCountry":"PE"}}
-  </script>
 
   <!-- SDK de Facebook para Page Plugin -->
   <div id="fb-root"></div>
@@ -678,13 +731,20 @@
     function toggleDrawer(open){
       drawer.setAttribute('aria-hidden', !open);
       burger.setAttribute('aria-expanded', !!open);
-      if(open){ drawer.querySelector('a').focus(); }
+      document.body.classList.toggle('menu-open', !!open);
+      if(open){
+        const firstLink = drawer.querySelector('a,button');
+        firstLink && firstLink.focus();
+      }
     }
     burger.addEventListener('click', ()=>toggleDrawer(true));
     backdrop.addEventListener('click', ()=>toggleDrawer(false));
     closeDrawer.addEventListener('click', ()=>toggleDrawer(false));
     window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') toggleDrawer(false); });
-
+    drawer.addEventListener('click', (e)=>{
+      const t = e.target.closest('a');
+      if(t && t.getAttribute('href')?.startsWith('#')) toggleDrawer(false);
+    });
     // Validación simple
     function validateForm(e){
       const f=e.target; const ok=f.nombre.value.trim() && f.email.value.trim();
